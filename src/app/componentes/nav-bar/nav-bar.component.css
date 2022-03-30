@@ -1,0 +1,43 @@
+.NavBar{
+    
+   
+    background-color: rgb(11, 43, 112);
+    height: 100px;
+    border-radius: 15px 15px 15px 15px;
+    height: 80px;
+   
+}
+
+
+.redes-sociales {
+    
+    font-size: 30px;
+    margin-right: 10px;
+    letter-spacing: 20px;
+    
+}
+
+.divLogo{
+   
+    display: flex;
+    float: left; 
+    vertical-align: middle;    
+    margin-left: 25px;
+    margin-top: 0.1%;
+}
+
+
+#logoArgentina{
+    height: 80px;
+}
+
+.divBotones{
+   
+    display: flex;
+    align-items: flex-end;
+    float: right;
+    vertical-align: middle;
+    margin-top: 1%;
+    
+   
+}
