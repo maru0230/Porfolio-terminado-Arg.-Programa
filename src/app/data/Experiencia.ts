@@ -1,5 +1,6 @@
 
       export interface Experiencia {
+        id: number,
         position: string;
         company: string,
         img: string,

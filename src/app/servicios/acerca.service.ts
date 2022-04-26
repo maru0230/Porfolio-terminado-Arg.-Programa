@@ -16,7 +16,7 @@ export class AcercaService {
   }
 
   guardarNuevaAcerca(acerca:Acerca):Observable<Acerca>{
-  return this.http.post<any>(config.BaseUrl + "/new/acerca", acerca);
+  return this.http.post<any>(config.BaseUrl + "new/acerca", acerca);
  }
 
   
@@ -24,9 +24,9 @@ export class AcercaService {
     return this.http.put<any>(config.BaseUrl + "editar/acerca", acerca);
   }
 
-  //borrarAcerca(id: number): Observable<any> {
-    //return this.http.delete<any>(config.BaseUrl + "anular/"+ id);
-  //}
+borrarAcerca(id: number): Observable<any> {
+   return this.http.delete<any>(config.BaseUrl + "anular/"+ id);
+ }
 
 
   

@@ -12,6 +12,8 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AcercaDeComponent implements OnInit {
 
   acercaList: Acerca[] = [];
+  
+  
   isUserLogged: Boolean = false;
 
   acercaForm:FormGroup;
@@ -83,16 +85,16 @@ export class AcercaDeComponent implements OnInit {
     this.loadForm(acerca);
   }
   
-  //onDeleteAcerca(index: number) {
-   // let acerca: Acerca = this.acercaList[index];
+ //onDeleteAcerca(index: number) {
+    //let acerca: Acerca = this.acercaList[index];
     //if (confirm("¿Está seguro que desea borrar el texto seleccionado?")) {
-      //this.acercaService.borrarAcerca(acerca.id).subscribe(
+    // this.acercaService.anularAcerca(acerca.id).subscribe(
         //() => {
-          //this.reloadData();
-        //}
+         // this.reloadData();
+       // }
       //)
-   // }
+    //}
   //}
   
- // }
+ //}
 }

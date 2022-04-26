@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Experiencia } from '../data/Experiencia';
-import { map } from 'rxjs/operators';
 import { config } from '../data/config/config';
 
 @Injectable({
@@ -12,33 +11,21 @@ export class ExperienciaService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerDatosExperiencia(): Observable<Experiencia[]> {
-    return this.http.get<any>("http://localhost:8080/ver/experiencia");
+  obtenerDatosExperiencia():Observable<Experiencia[]>{
+    return this.http.get<any>(config.BaseUrl + "ver/experiencia");
   }
 
-  obtenerDatosExpriencia(): Experiencia[] {
-    return [
-     
-      {
-        "position": "Diseñadora Gráfica",
-        "company": "Centro Gráfico PR",
-        "img": "https://jacintoimpresores.com/wp-content/uploads/2015/03/logo-cruz.png",
-        "mode": "Full Time",
-        "start": "marzo 2004",
-        "end": "enero 2005",
-        "timeElapsed" : "1 año",
-        "place": "Capital Federal"
-      },
-      {
-        "position": "Diseñadora Gráfica",
-        "company": "Imprenta Rosfer",
-        "img": "https://imprenta-offset.com/wp-content/uploads/2016/11/logo-sin-texto.png",
-        "mode": "Full Time",
-        "start": "abril 2006",
-        "end": "julio 2020",
-        "timeElapsed" : "14 años",
-        "place": "Capital Federal"
-      }
-      ]
-    }
+  guardarNuevaExperiencia(experiencia:Experiencia):Observable<Experiencia>{
+    return this.http.post<any>(config.BaseUrl + "new/experiencia", experiencia);
+  }
+
+  
+  modificarExperiencia(experiencia: Experiencia): Observable<any> {
+    return this.http.put<any>(config.BaseUrl + "editar/experiencia", experiencia);
+  }
+
+  borrarExperiencia(id: number): Observable<any> {
+    return this.http.delete<any>(config.BaseUrl + "eliminar/"+ id);
+  }
+
   }
