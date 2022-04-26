@@ -1,0 +1,22 @@
+div.card-mat-card{
+    border-radius: 32px 32px 32px 32px;
+    border:1px solid black;
+    height: 200px;
+    padding: 20px;
+
+
+}
+
+
+
+div .acercaDe-texto{
+    font-size: 24px;
+}
+
+.btn-right {
+    
+    display: flex;
+    align-self: flex-end;
+    text-align: right;
+
+}

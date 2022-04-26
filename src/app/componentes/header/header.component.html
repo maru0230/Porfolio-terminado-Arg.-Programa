@@ -1,0 +1,44 @@
+<section>
+    <header>
+      <div class="card mat-card" id="first-card" >
+        <div id="profile-background" >
+          <img id="info-back-img"
+            src="https://img.freepik.com/vector-gratis/concepto-papel-tapiz-formas-geometricas_23-2148641504.jpg?size=626&ext=jpg"/>
+        </div>
+        <div id="info" style="padding: 16px" *ngFor="let persona of persona">
+          <div id="info-img">
+            <img id="info-user-img" class="profile-image"
+              [src]="persona.image">
+            <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
+                  onclick="showEditProfileModal()"></i></a></div>
+          </div>
+          <div id="info-data">
+            <div>
+              <h1 id="info-name">{{persona.name}}</h1>
+              <div><span id="info-position">{{persona.position}}</span></div>
+              <div id="info-contact">
+                <span id="info-ubication">{{persona.ubication}}</span>
+                <span><a href="#">Información de contacto</a></span>
+              </div>
+            </div>
+            <ul id="info-details">
+              <li><a [href]="persona.url" target="-blank">
+                  <img id="info-company-img"
+                    [src]="persona.img">
+                  <h2 id="info-company-name">{{persona.company}}</h2>
+                </a></li>
+              <li><a [href]="persona.url2" target="-blank">
+                  <img id="info-school-img" [src]="persona.img2">
+                  <h2 id="info-school-name">{{persona.school}}</h2>
+                </a></li>
+            </ul>
+          </div>
+          <div id="info-actions">
+            <button type="button" class="btn btn-primary">Tengo interés en</button>
+            <button type="button" class="btn btn-light">Añadir Sección</button>
+            <button type="button" class="btn btn-light">Más</button>
+          </div>
+        </div>
+      </div>
+
+      

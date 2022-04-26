@@ -1,0 +1,103 @@
+{"name" : "Mariana de la Calle",
+    "backImage": "https://img.freepik.com/vector-gratis/concepto-papel-tapiz-formas-geometricas_23-2148641504.jpg?size=626&ext=jpg",
+    "image": "https://i2.wp.com/imagenes.milenio.com/E-yJnq9EhkZhWaU7T_2utkyTymQ=/958x596/smart/https://www.milenio.com/uploads/media/2018/10/05/steve-jobs-perdio-vida-consecuencia_0_199_1193_742.jpg?w=640&ssl=1",
+    "position" : "Diseñadora Gráfica",
+    "company" : {
+      "name": "Inti",
+      "img": "https://enoru.cancilleria.gob.ar/userfiles/styles/full/public/inti_logo_1.png?itok=tDc7IUTw",
+      "url" : "#"
+    },
+    "school": {
+      "name": "Unniversidad Abierta Interamericana",
+      "img": "https://i.ibb.co/FhGBV4S/logo-universidad-abierta-interamericana.png",
+      "url": "#"
+    },
+    "ubicacion" : "Buenos Aires (Argentina) ",
+    "about": "Diseñadora Gráfica, recibida de la Universidad Abierta Ineramericana y estudiante de programación.",
+    "experience": [
+      {
+        "position": "Diseñadora Gráfica",
+        "company": "Centro Gráfico PR",
+        "img": "https://jacintoimpresores.com/wp-content/uploads/2015/03/logo-cruz.png",
+        "mode": "Full Time",
+        "start": "marzo 2004",
+        "end": "enero 2005",
+        "timeElapsed" : "1 año",
+        "place": "Capital Federal"
+      },
+      {
+        "position": "Diseñadora Gráfica",
+        "company": "Imprenta Rosfer",
+        "img": "https://imprenta-offset.com/wp-content/uploads/2016/11/logo-sin-texto.png",
+        "mode": "Full Time",
+        "start": "abril 2006",
+        "end": "julio 2020",
+        "timeElapsed" : "14 años",
+        "place": "Capital Federal"
+      }
+    ],
+    "education": [
+      {
+        "school": "UAI",
+        "title": "Diseño Gráfico",
+        "img": "https://filer.365.clarin.com/filer/materiales-salesforce/prod/201701/06/201701-06-c348d4f4-cefe-451b-8b8a-3d16d9a6870a.jpg",
+        "career": "Ciencias de la Comunicación ",
+        "start": "1999",
+        "end": "2001"
+      },
+      
+      {
+        "school": "Escuela Secundaria F. J. Muñiz",
+        "title": "Bachiller con Orientación en Gestión y Administración",
+        "img": "https://static.wixstatic.com/media/86b083_a0b1b31b40fe4fa4ad21dda9d904517c~mv2.png/v1/fill/w_156,h_170,al_c,q_85,usm_0.66_1.00_0.01/logoChico%20con%20fondo.webp",
+        "career": "Secundario",
+        "start": "1994",
+        "end": "1998"
+      }
+    ],
+
+    "language": [
+      {
+        "idioma":"Inglés"
+      }
+    ],
+
+    "projects":[
+      {
+        "project": "Porfolio Web",
+        "details":"Diseño de porfolio personal en donde se pueden ver Estudios, Experiencia Laboral, Habilidades. Tiene botones para en donde previamente accediendo a un login puede añadirse, modificar y eliminar información" 
+      }
+    ],
+
+    "aptitudes": [
+      {
+        "name": "Retoque fotográfico",
+        "progress": 75,
+        "confirms": 2,
+        "confirmsNames": [
+          {
+            "name": "Mariana de la Calle"
+          }
+        ]
+      },
+      {
+        "name": "Conocimientos en programas de diseño y programación",
+        "confirms": 3,
+        "confirmsNames": [
+          {
+            "name": "Mariana de la Calle"
+          }
+        ]
+      }
+    ],
+    "achivements": [
+      {
+        "name": "Huaro App"
+      },
+      {
+        "name": "Lanterns 19/09"
+      }
+    ]
+  
+  
+}

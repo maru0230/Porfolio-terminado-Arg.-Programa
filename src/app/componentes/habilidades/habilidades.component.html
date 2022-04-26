@@ -1,0 +1,161 @@
+<article class="card mat-card">
+    <div class="card-titles">
+      <h2>Hard Skills & Soft Skills</h2>
+
+    <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus" 
+              onclick="showNewAptModal()"></i></a> </div>
+     
+        <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
+              onclick="showEditExpModal('Pixar')"></i></a> </div>
+        <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"
+              onclick="deleteExp('Pixar')"></i></a> </div>
+    </div>
+
+    <ol class="items-list" >
+      <li *ngFor="let habilidad of habilidadList">
+        <div class="aptitude-info" >
+          <a href="#">
+            <p><span>{{habilidad.habilidad}}</span></p>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width': habilidad.porcentaje + '%'}"
+                [attr.aria-valuenow]="habilidad.porcentaje" aria-valuemax="100"></div>
+            </div>
+           
+          </a>
+        </div>
+      </li>
+ 
+    </ol>
+     
+</article>
+ 
+
+<article class="card mat-card">
+  <div class="card-titles">
+    <h2>Idiomas</h2>
+
+    <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus" 
+      onclick="showNewAptModal()"></i></a> </div>
+
+<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
+      onclick="showEditExpModal('Pixar')"></i></a> </div>
+<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"
+      onclick="deleteExp('Pixar')"></i></a> </div>
+
+  </div>
+
+  <ol class="items-list">
+    <li>
+      <div class="aptitude-info">
+        <a href="#">
+          <p><span>Ingles</span></p>
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">75%</span></p></div>
+          </div>
+        </a>
+      </div>
+    </li>
+</ol>
+</article>
+
+
+<article class="card mat-card">
+  <div class="card-titles">
+    <h2>Programas y Lenguajes</h2>
+
+    <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus" 
+      onclick="showNewAptModal()"></i></a> </div>
+
+<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
+      onclick="showEditExpModal('Pixar')"></i></a> </div>
+<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"
+      onclick="deleteExp('Pixar')"></i></a> </div>
+
+  </div>
+ 
+  <ol class="items-list">
+    <li>
+      <div class="aptitude-info">
+        
+          <p><span>Programas de Diseño</span></p>
+          
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><p><span style="color: white;">Ilustrator 100%</span></p></div>
+          </div>
+          <br> 
+       
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><p><span style="color: white;">Photoshop 80%</span></p></div>
+          </div>
+          <br>
+
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><p><span style="color: white;">Corel Draw 100%</span></p></div>
+          </div>
+      
+      </div>
+    </li>
+
+    <li>
+      <div class="aptitude-info">
+          <p><span>Lenguajes de Programación</span></p>
+          
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">HTML 75%</span></p></div>
+          </div>
+        <br>
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">CSS 80%</span></p></div>
+          </div>
+
+          <br>
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">Angular 75%</span></p></div>
+          </div>
+
+          <br>
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">JavaScript 65%</span></p></div>
+          </div>
+
+          <br>
+          <div class="progress" style="height: 35px;">
+            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">Bootstrap 80%</span></p></div>
+          </div>
+      
+      </div>
+    </li>
+</ol>
+</article>
+
+
+
+
+
+  <article class="card mat-card">
+    <div class="card-titles">
+      <h2>Proyectos</h2>
+
+      <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus" 
+      onclick="showNewAptModal()"></i></a> </div>
+
+      <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
+      onclick="showEditExpModal('Pixar')"></i></a> </div>
+      <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"
+      onclick="deleteExp('Pixar')"></i></a> </div>
+
+  </div>
+    
+    <div class="achivements">
+      <ol class="items-list">
+        
+        <li>
+          <h3>Portfolio web</h3>
+          <div>
+            Para la realización de esta página se utilizo Angular, SpringBoot y la base de datos MySQL.
+          </div>
+        </li>
+      </ol>
+    </div>
+  </article>
+

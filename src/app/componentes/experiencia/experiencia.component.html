@@ -1,0 +1,43 @@
+<article class="card mat-card">
+    <div id="experience">
+      <div class="card-titles">
+        <h2>Experiencia</h2>
+        <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus" onclick="showNewExpModal()"></i></a>
+        </div>
+      </div>
+      <div>
+        <ul class="items-list" id="expList">
+          <li *ngFor="let experiencia of experienciaList">
+            <div class="data-container">
+              <a href="#">
+                <div class="logo-image-container"><img id="exp-img" class="logo-image"
+                    [src]="experiencia.img"></div>
+                <div class="list-info">
+                  <div>
+                    <h3 id="exp-position">{{experiencia.position}}</h3>
+                    <p><span id="exp-company">{{experiencia.company}}</span> - <span id="exp-mode">{{experiencia.mode}}</span></p>
+                    <h4><span id="exp-initial">{{experiencia.start}}</span> – <span id="exp-end">{{experiencia.end}}</span> - <span
+                        id="exp-time">{{experiencia.timeElapsed}}</span></h4>
+                    <h4 id="exp-place">{{experiencia.place}}</h4>
+                  </div>
+                </div>
+              </a>
+
+             
+            </div>
+            <div *ngIf="isUserLogged" class="data-control">
+              <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
+                    onclick="showEditExpModal('Pixar')"></i></a></div>
+              <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"
+                    onclick="deleteExp('Pixar')"></i></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+     
+  </article>
+
+ 
+
+  

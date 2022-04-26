@@ -1,0 +1,20 @@
+{"education": [
+    {
+      "school": "UAI",
+      "title": "Diseño Gráfico",
+      "img": "https://filer.365.clarin.com/filer/materiales-salesforce/prod/201701/06/201701-06-c348d4f4-cefe-451b-8b8a-3d16d9a6870a.jpg",
+      "career": "Ciencias de la Comunicación ",
+      "start": "1999",
+      "end": "2001"
+    },
+    
+    {
+      "school": "Escuela Secundaria F. J. Muñiz",
+      "title": "Bachiller con Orientación en Gestión y Administración",
+      "img": "https://ibb.co/LZZDQdn",
+      "career": "Secundario",
+      "start": "1994",
+      "end": "1998"
+    }
+  ]
+}
