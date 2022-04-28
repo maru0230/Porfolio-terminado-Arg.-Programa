@@ -1,0 +1,84 @@
+<article class="card mat-card">
+    <div class="card-titles">
+
+<!-- Modal -->
+<div class="modal fade" id="idiomaForm" tabindex="-1" aria-labelledby="idiomaFormLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="idiomaFormLabel">Idioma</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="idiomaForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id">
+
+          <div class="row mb-3">
+            <label for="idioma" class="col-sm-2 col-form-label">Idioma</label>
+            <div class="col-sm-10">
+              <input type="text" name="idioma" formControlName="idioma" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="porcentaje" class="col-sm-2 col-form-label">Porcentaje</label>
+            <div class="col-sm-10">
+              <input type="number" name="porcentaje" formControlName="porcentaje" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="valor" class="col-sm-2 col-form-label">Valor</label>
+            <div class="col-sm-10">
+              <input type="text" name="valor" formControlName="valor" class="form-control" required>
+            </div>
+          </div>
+                 
+
+          <div class="text-center">
+            <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Modificar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <h2>Idiomas</h2>
+  
+       <!-- Boton agregar -->
+       <div *ngIf="isUserLogged" class="btn-edit">
+        <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#idiomaForm" (click)="onNewIdioma()"><i class="fa fa-plus"></i></button>
+      </div>
+  
+    </div>
+  
+    <ol class="items-list">
+      <li *ngFor="let idioma of idiomaList, let i = index">
+        <div class="aptitude-info">
+
+          <!-- Boton editar -->
+          <div *ngIf="isUserLogged" class="btn-edit" style="float: right;" >
+            <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#idiomaForm" (click)="onEditIdioma(i)"><i class="fa fa-pen"></i></button>
+              </div>
+           <!-- Boton borrar -->
+          <div *ngIf="isUserLogged" class="btn-edit" style="float: right;">
+            <button class="btn btn-right" (click)="onDeleteIdioma(i)"><i class="fa fa-trash"></i></button>
+          </div>
+
+          
+          <p><span>{{idioma.idioma}}</span></p>
+        </div>
+            <!-- Barra progreso -->
+            <div class="progress" style="height: 35px;">
+              <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [ngStyle]="{'width': idioma.porcentaje + '%'}"
+              [attr.aria-valuenow]="idioma.porcentaje" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">{{idioma.valor}}</span></p></div>
+            </div>
+         
+       
+      </li>
+  </ol>
+  </article>

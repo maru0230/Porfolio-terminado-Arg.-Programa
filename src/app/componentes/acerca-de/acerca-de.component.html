@@ -1,46 +1,53 @@
 <div class="card mat-card" >
 
-<!-- Modal -->
-<div class="modal fade" id="acercaForm" tabindex="-1" aria-labelledby="acercaFormLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="acercaFormLabel">Acerca</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="acercaForm" (ngSubmit)="onSubmit()">
-          <input type="hidden" name="id" formControlName="id">
+   
 
-          <div class="row mb-3">
-            <label for="school" class="col-sm-2 col-form-label">Texto</label>
-            <div class="col-sm-10">
-              <input type="text" name="texto" formControlName="texto" class="form-control" required>
+      <!-- Modal -->
+      <div class="modal fade" id="acercaForm" tabindex="-1" aria-labelledby="acercaFormLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="acercaFormLabel">Acerca</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="acercaForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" name="id" formControlName="id">
+    
+                <div class="row mb-3">
+                  <label for="position" class="col-sm-2 col-form-label">Acerca</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="texto" formControlName="texto" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Modificar</button>
+                </div>                       
+                                      
+                   
+             </form>
             </div>
           </div>
-
-                
-
-          <div class="text-center">
-            <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Modificar</button>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-  <div class="card-titles" >
+
+     <div class="card-titles" >
     <h2>Acerca de</h2>
-    <div *ngIf="isUserLogged"class="btn-edit" >
-      <div class="btn-edit">
-        <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#acercaForm" (click)="onEditAcerca">
-          <i class="fa fa-pen"></i></button>
-      </div>
+      <div *ngIf="isUserLogged"class="btn-edit" >
+      
     </div>
   </div>
-  <div id="acerca" *ngFor="let acerca of acercaList">
-    {{acerca.texto}}
+  <div id="acerca" *ngFor="let acerca of acercaList,let i = index">
+   {{acerca.texto}}
+
+   <div *ngIf="isUserLogged" class="btn-edit" style="float: right;">
+    <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#acercaForm" (click)="onEditAcerca(i)"><i class="fa fa-pen"></i></button>
   </div>
-</div>
+   </div>
+   
+  </div>
+
+  

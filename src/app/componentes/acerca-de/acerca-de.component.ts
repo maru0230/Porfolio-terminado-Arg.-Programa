@@ -12,7 +12,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AcercaDeComponent implements OnInit {
 
   acercaList: Acerca[] = [];
-  
+ 
   
   isUserLogged: Boolean = false;
 
@@ -33,8 +33,10 @@ export class AcercaDeComponent implements OnInit {
       this.isUserLogged = this.authService.isUserLogged();
       
       this.reloadData();
+     
     }
   
+    
     private reloadData() {
       this.acercaService.obtenerDatosAcerca().subscribe(
         (data) => {
@@ -46,7 +48,7 @@ export class AcercaDeComponent implements OnInit {
   
     private clearForm(){
       this.acercaForm.setValue({
-        id:'',
+       id:'',
         texto:'',
       })
   }
@@ -60,41 +62,43 @@ export class AcercaDeComponent implements OnInit {
   }
   
   onSubmit() {
-    let acerca: Acerca = this.acercaForm.value;
-    if (this.acercaForm.get('id')?.value == '') {
+   let acerca: Acerca = this.acercaForm.value;
+   if (this.acercaForm.get('id')?.value == '') {
       this.acercaService.guardarNuevaAcerca(acerca).subscribe(
         (newAcerca: Acerca) => {
           this.acercaList.push(newAcerca);
         }
       );
     } else {
-      this.acercaService.modificarAcerca(acerca).subscribe(
-        () => {
+     this.acercaService.modificarAcerca(acerca).subscribe(
+       () => {
           this.reloadData();
-        }
-      )
-    }
-  }
+       }
+     )
+   }
+ }
   
   onNewAcerca() {
-    this.clearForm();
+  this.clearForm();
   }
+
   
-  onEditAcerca(index: number) {
-    let acerca: Acerca = this.acercaList[index];
-    this.loadForm(acerca);
+  
+ onEditAcerca(index: number) {
+  let acerca: Acerca = this.acercaList[index];
+  this.loadForm(acerca);
   }
   
  //onDeleteAcerca(index: number) {
     //let acerca: Acerca = this.acercaList[index];
     //if (confirm("¿Está seguro que desea borrar el texto seleccionado?")) {
-    // this.acercaService.anularAcerca(acerca.id).subscribe(
-        //() => {
-         // this.reloadData();
-       // }
+    //this.acercaService.borrarAcerca(acerca.id).subscribe(
+       // () => {
+       //  this.reloadData();
+       //}
       //)
-    //}
+   // }
   //}
   
- //}
-}
+ }
+

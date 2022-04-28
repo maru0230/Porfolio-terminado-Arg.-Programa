@@ -1,12 +1,9 @@
-export class Acerca {
-    id?:number;
+export interface Acerca {
+    id:number;
     texto: string;
     
 
-    constructor(texto: string ){
-             this.texto=texto;
-             
-    }
+    
 
 }
 

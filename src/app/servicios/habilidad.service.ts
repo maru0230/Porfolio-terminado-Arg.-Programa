@@ -13,7 +13,21 @@ export class HabilidadService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerDatosHabilidad(): Observable<Habilidad[]> {
-    return this.http.get<any>("http://localhost:8080/ver/habilidad");
+  obtenerDatosHabilidad():Observable<Habilidad[]>{
+    return this.http.get<any>(config.BaseUrl + "ver/habilidad");
   }
+
+  guardarNuevaHabilidad(habilidad:Habilidad):Observable<Habilidad>{
+    return this.http.post<any>(config.BaseUrl + "new/habilidad", habilidad);
+  }
+
+  
+  modificarHabilidad(habilidad: Habilidad): Observable<any> {
+    return this.http.put<any>(config.BaseUrl + "editar/habilidad", habilidad);
+  }
+
+  borrarHabilidad(id: number): Observable<any> {
+    return this.http.delete<any>(config.BaseUrl + "delete2/"+ id);
+  }
+
 }

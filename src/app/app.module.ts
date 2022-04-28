@@ -14,6 +14,10 @@ import { LoginComponent } from './componentes/auth/login/login.component';
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
+import { EditarAcercaComponent } from './acerca-de/editar-acerca.component';
+import { IdiomasComponent } from './componentes/idiomas/idiomas.component';
+
+
 
 
 @NgModule({
@@ -26,7 +30,12 @@ import { HabilidadesComponent } from './componentes/habilidades/habilidades.comp
     ExperienciaComponent,
     LoginComponent,
     PorfolioComponent,
-    HabilidadesComponent
+    HabilidadesComponent,
+    EditarAcercaComponent,
+    IdiomasComponent,
+    
+    
+    
   ],
   imports: [
     BrowserModule,

@@ -1,62 +1,83 @@
 <article class="card mat-card">
     <div class="card-titles">
-      <h2>Hard Skills & Soft Skills</h2>
 
-    <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus" 
-              onclick="showNewAptModal()"></i></a> </div>
-     
-        <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
-              onclick="showEditExpModal('Pixar')"></i></a> </div>
-        <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"
-              onclick="deleteExp('Pixar')"></i></a> </div>
+ <!-- Modal -->
+ <div class="modal fade" id="habilidadForm" tabindex="-1" aria-labelledby="habilidadFormLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="habilidadFormLabel">Habilidad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="habilidadForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id">
+
+          <div class="row mb-3">
+            <label for="Habilidad" class="col-sm-2 col-form-label">Habilidad</label>
+            <div class="col-sm-10">
+              <input type="text" name="habilidad" formControlName="habilidad" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="porcentaje" class="col-sm-2 col-form-label">Porcentaje</label>
+            <div class="col-sm-10">
+              <input type="number" name="porcentaje" formControlName="porcentaje" class="form-control" required>
+            </div>
+          </div>
+
+                        
+
+          <div class="text-center">
+            <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Modificar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <h2>Hard Skills & Soft Skills</h2>
+      <!-- Boton agregar -->
+      <div *ngIf="isUserLogged" class="btn-edit">
+        <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#habilidadForm" (click)="onNewHabilidad()"><i class="fa fa-plus"></i></button>
+      </div>
+
     </div>
 
     <ol class="items-list" >
-      <li *ngFor="let habilidad of habilidadList">
+      <li *ngFor="let habilidad of habilidadList, let i = index">
         <div class="aptitude-info" >
-          <a href="#">
-            <p><span>{{habilidad.habilidad}}</span></p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width': habilidad.porcentaje + '%'}"
-                [attr.aria-valuenow]="habilidad.porcentaje" aria-valuemax="100"></div>
-            </div>
-           
-          </a>
-        </div>
+          <!-- Boton editar -->
+          <div *ngIf="isUserLogged" class="btn-edit" style="float: right;" >
+            <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#habilidadForm" (click)="onEditHabilidad(i)"><i class="fa fa-pen"></i></button>
+              </div>
+           <!-- Boton borrar -->
+          <div *ngIf="isUserLogged" class="btn-edit" style="float: right;">
+            <button class="btn btn-right" (click)="onDeleteHabilidad(i)"><i class="fa fa-trash"></i></button>
+          </div>
+                
+           <p><span>{{habilidad.habilidad}}</span></p><div *ngIf="isUserLogged" class="btn-edit">
+         
+      </div>
+         </div>
+
+         <!-- Barra progreso -->
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width': habilidad.porcentaje + '%'}"
+              [attr.aria-valuenow]="habilidad.porcentaje" aria-valuemax="100"></div>
+          </div>
+     
       </li>
- 
-    </ol>
+     </ol>
      
 </article>
  
 
-<article class="card mat-card">
-  <div class="card-titles">
-    <h2>Idiomas</h2>
 
-    <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus" 
-      onclick="showNewAptModal()"></i></a> </div>
-
-<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
-      onclick="showEditExpModal('Pixar')"></i></a> </div>
-<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"
-      onclick="deleteExp('Pixar')"></i></a> </div>
-
-  </div>
-
-  <ol class="items-list">
-    <li>
-      <div class="aptitude-info">
-        <a href="#">
-          <p><span>Ingles</span></p>
-          <div class="progress" style="height: 35px;">
-            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><p><span style="color: white;">75%</span></p></div>
-          </div>
-        </a>
-      </div>
-    </li>
-</ol>
-</article>
 
 
 <article class="card mat-card">
@@ -80,7 +101,9 @@
           <p><span>Programas de Diseño</span></p>
           
           <div class="progress" style="height: 35px;">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><p><span style="color: white;">Ilustrator 100%</span></p></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><p>
+              <span style="color: white;">Ilustrator 100%</span></p></div>
           </div>
           <br> 
        
