@@ -1,25 +1,125 @@
 <section>
-    <header>
-      <div class="card mat-card" id="first-card" >
+    <header >
+     
 
+
+        <!-- Modal -->
+ <div class="modal fade" id="personaForm" tabindex="-1" aria-labelledby="personaFormLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="personaFormLabel">Persona</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id">
+
+          <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" formControlName="name" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="image" class="col-sm-2 col-form-label">Image</label>
+            <div class="col-sm-10">
+              <input type="text" name="image" formControlName="image" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="position" class="col-sm-2 col-form-label">Position</label>
+            <div class="col-sm-10">
+              <input type="text" name="position" formControlName="position" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="ubication" class="col-sm-2 col-form-label">Ubication</label>
+            <div class="col-sm-10">
+              <input type="text" name="ubication" formControlName="ubication" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="company" class="col-sm-2 col-form-label">Company</label>
+            <div class="col-sm-10">
+              <input type="text" name="company" formControlName="company" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="img" class="col-sm-2 col-form-label">Img</label>
+            <div class="col-sm-10">
+              <input type="text" name="img" formControlName="img" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="url" class="col-sm-2 col-form-label">Url</label>
+            <div class="col-sm-10">
+              <input type="text" name="url" formControlName="url" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="school" class="col-sm-2 col-form-label">School</label>
+            <div class="col-sm-10">
+              <input type="text" name="school" formControlName="school" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="img2" class="col-sm-2 col-form-label">Img2</label>
+            <div class="col-sm-10">
+              <input type="text" name="img2" formControlName="img2" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="url2" class="col-sm-2 col-form-label">Url2</label>
+            <div class="col-sm-10">
+              <input type="text" name="url2" formControlName="url2" class="form-control" required>
+            </div>
+          </div>
+                     
+
+          <div class="text-center">
+            <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Modificar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FIN Modal -->
+<div class="card mat-card" id="first-card"  >
       <div id="profile-background" >
-          <img id="info-back-img"
+          <img id="info-back-img" 
             src="https://img.freepik.com/vector-gratis/concepto-papel-tapiz-formas-geometricas_23-2148641504.jpg?size=626&ext=jpg"/>
         </div>
-        <div id="info" style="padding: 16px" *ngFor="let persona of persona">
-          <div id="info-img">
-            <img id="info-user-img" class="profile-image"
+        <div id="info" style="padding: 16px" *ngFor="let persona of personaList, let i = index">
+          <div id="info-img" >
+            <img id="info-user-img" class="profile-image" 
               [src]="persona.image">
-            <div *ngIf="isUserLogged" class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
-                  onclick="showEditProfileModal()"></i></a></div>
+
+            <!-- Boton editar -->
+          <div *ngIf="isUserLogged" class="btn-edit" >
+            <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#personaForm" (click)="onEditPersona(i)"><i class="fa fa-pen"></i></button>
+              </div>
+
+             
           </div>
-          <div id="info-data">
-            <div>
-              <h1 id="info-name">{{persona.name}}</h1>
+          <div id="info-data" >
+            <div >
+              <h1 id="info-name" >{{persona.name}}</h1>
               <div><span id="info-position">{{persona.position}}</span></div>
               <div id="info-contact">
                 <span id="info-ubication">{{persona.ubication}}</span>
-                <span><a href="#">Información de contacto</a></span>
+                <span><a href="https://www.linkedin.com/in/mariana-de-la-calle-776203165/"  target="-blank">Información de contacto</a></span>
               </div>
             </div>
             <ul id="info-details">
@@ -35,9 +135,9 @@
             </ul>
           </div>
           <div id="info-actions">
-            <button type="button" class="btn btn-primary">Tengo interés en</button>
-            <button type="button" class="btn btn-light">Añadir Sección</button>
-            
+           <a href="https://arche-ele.com/wp-content/uploads/2020/12/1-1.png" target="-blank" type="text" class="intereses" ><h5>Tengo interés en</h5></a>
+           
+                     
           </div>
         </div>
       </div>

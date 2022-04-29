@@ -16,13 +16,13 @@ export class EducacionComponent implements OnInit {
   educacionList: Educacion[] = [];
   isUserLogged: Boolean = false;
 
-  educationForm:FormGroup;
+  educacionForm:FormGroup;
 
   constructor(
     private porfolioService: PorfolioService,
     private authService: AuthService,
     private formBuilder:FormBuilder){
-      this.educationForm=this.formBuilder.group(
+      this.educacionForm=this.formBuilder.group(
         {
           id:[''],
           school:['', [Validators.required, Validators.minLength(10)]],
@@ -52,7 +52,7 @@ export class EducacionComponent implements OnInit {
 
 
   private clearForm(){
-    this.educationForm.setValue({
+    this.educacionForm.setValue({
       id:'',
       school:'',
       title:'',
@@ -65,7 +65,7 @@ export class EducacionComponent implements OnInit {
   
   
 private loadForm(educacion: Educacion) {
-  this.educationForm.setValue({
+  this.educacionForm.setValue({
     id: educacion.id,
     school: educacion.school,
     title: educacion.title,
@@ -77,11 +77,11 @@ private loadForm(educacion: Educacion) {
 }
 
 onSubmit() {
-  let educacion: Educacion = this.educationForm.value;
-  if (this.educationForm.get('id')?.value == '') {
+  let educacion: Educacion = this.educacionForm.value;
+  if (this.educacionForm.get('id')?.value == '') {
     this.porfolioService.guardarNuevaEducacion(educacion).subscribe(
-      (newEducation: Educacion) => {
-        this.educacionList.push(newEducation);
+      (newEducacion: Educacion) => {
+        this.educacionList.push(newEducacion);
       }
     );
   } else {
@@ -93,16 +93,16 @@ onSubmit() {
   }
 }
 
-onNewEducation() {
+onNewEducacion() {
   this.clearForm();
 }
 
-onEditEducation(index: number) {
+onEditEducacion(index: number) {
   let educacion: Educacion = this.educacionList[index];
   this.loadForm(educacion);
 }
 
-onDeleteEducation(index: number) {
+onDeleteEducacion(index: number) {
   let educacion: Educacion = this.educacionList[index];
   if (confirm("¿Está seguro que desea borrar la educación seleccionada?")) {
     this.porfolioService.borrarEducacion(educacion.id).subscribe(

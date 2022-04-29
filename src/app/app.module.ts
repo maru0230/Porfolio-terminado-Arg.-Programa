@@ -16,6 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { EditarAcercaComponent } from './acerca-de/editar-acerca.component';
 import { IdiomasComponent } from './componentes/idiomas/idiomas.component';
+import { ProgramaComponent } from './componentes/programa/programa.component';
+import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 
 
 
@@ -33,6 +35,8 @@ import { IdiomasComponent } from './componentes/idiomas/idiomas.component';
     HabilidadesComponent,
     EditarAcercaComponent,
     IdiomasComponent,
+    ProgramaComponent,
+    ProyectoComponent,
     
     
     

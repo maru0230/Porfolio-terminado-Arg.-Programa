@@ -41,8 +41,8 @@
     </div>
   </div>
   <div id="acerca" *ngFor="let acerca of acercaList,let i = index">
-   {{acerca.texto}}
-
+   <p>{{acerca.texto}}</p>
+    <!-- Boton editar -->
    <div *ngIf="isUserLogged" class="btn-edit" style="float: right;">
     <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#acercaForm" (click)="onEditAcerca(i)"><i class="fa fa-pen"></i></button>
   </div>

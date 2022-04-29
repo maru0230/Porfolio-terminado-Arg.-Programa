@@ -1,0 +1,89 @@
+<article class="card mat-card">
+    <div class="card-titles">
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="programaForm" tabindex="-1" aria-labelledby="programaFormLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="programaFormLabel">Programa</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="programaForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" name="id" formControlName="id">
+      
+                <div class="row mb-3">
+                  <label for="categoria" class="col-sm-2 col-form-label">Categoria</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="categoria" formControlName="categoria" class="form-control" required>
+                  </div>
+                </div>
+      
+                <div class="row mb-3">
+                  <label for="porcentaje" class="col-sm-2 col-form-label">Porcentaje</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="porcentaje" formControlName="porcentaje" class="form-control" required>
+                  </div>
+                </div>
+      
+                <div class="row mb-3">
+                  <label for="valorynombre" class="col-sm-2 col-form-label">Valor y Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="valorynombre" formControlName="valorynombre" class="form-control" required>
+                  </div>
+                </div>
+                
+                <div class="text-center">
+                  <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Modificar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <h2>Programas y Lenguajes</h2>
+  
+       <!-- Boton agregar -->
+       <div *ngIf="isUserLogged" class="btn-edit">
+        <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#programaForm" (click)="onNewPrograma()"><i class="fa fa-plus"></i></button>
+      </div>
+  
+    </div>
+   
+    <ol class="items-list">
+      <li *ngFor="let programa of programaList, let i = index">
+        <div class="aptitude-info">
+
+          <!-- Boton editar -->
+          <div *ngIf="isUserLogged" class="btn-edit" style="float: right;" >
+            <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#programaForm" (click)="onEditPrograma(i)"><i class="fa fa-pen"></i></button>
+              </div>
+           <!-- Boton borrar -->
+          <div *ngIf="isUserLogged" class="btn-edit" style="float: right;">
+            <button class="btn btn-right" (click)="onDeletePrograma(i)"><i class="fa fa-trash"></i></button>
+          </div>
+
+          
+            <p><span>{{programa.categoria}}</span></p>
+
+            <!-- Barra progreso -->
+            <div class="progress" style="height: 35px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+              [attr.aria-valuenow]="programa.porcentaje" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': programa.porcentaje + '%'}"><p>
+                <span style="color: white;">{{programa.valorynombre}}</span></p></div>
+            </div>
+            <br> 
+         
+                  
+        </div>
+      </li>
+  
+     
+  </ol>
+  </article>
