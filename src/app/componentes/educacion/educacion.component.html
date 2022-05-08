@@ -1,5 +1,6 @@
-
+<article>
   <div id="education">
+    <div class="card-titles">
    
     <!-- Modal -->
     <div class="modal fade" id="educacionForm" tabindex="-1" aria-labelledby="educacionFormLabel" aria-hidden="true">
@@ -59,7 +60,7 @@
     </div>
  
 
-    <div class="card-titles">
+   
       <h2>Educación</h2>
       <!-- Boton agregar -->
       <div *ngIf="isUserLogged" class="btn-edit">
@@ -68,7 +69,7 @@
     </div>
     <div>
       <ul class="items-list" id="eduList">
-        <li *ngFor="let educacion of educacionList; let i = index">
+        <li *ngFor="let educacion of educacionList,; let i = index">
           <div class="data-container">
             <a href="#">
               <div class="logo-image-container"><img id="edu-img" class="logo-image"
@@ -96,3 +97,4 @@
       </ul>
     </div>
   </div>
+</article>
